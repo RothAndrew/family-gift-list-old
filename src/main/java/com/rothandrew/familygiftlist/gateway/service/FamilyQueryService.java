@@ -82,6 +82,12 @@ public class FamilyQueryService extends QueryService<Family> {
             if (criteria.getMembersId() != null) {
                 specification = specification.and(buildReferringEntitySpecification(criteria.getMembersId(), Family_.members, User_.id));
             }
+            if (criteria.getOwnersId() != null) {
+                specification = specification.and(buildReferringEntitySpecification(criteria.getOwnersId(), Family_.owners, User_.id));
+            }
+            if (criteria.getAdminsId() != null) {
+                specification = specification.and(buildReferringEntitySpecification(criteria.getAdminsId(), Family_.admins, User_.id));
+            }
         }
         return specification;
     }

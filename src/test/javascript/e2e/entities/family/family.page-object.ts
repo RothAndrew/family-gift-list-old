@@ -28,6 +28,8 @@ export class FamilyUpdatePage {
     cancelButton = element(by.id('cancel-save'));
     nameInput = element(by.id('field_name'));
     membersSelect = element(by.id('field_members'));
+    ownersSelect = element(by.id('field_owners'));
+    adminsSelect = element(by.id('field_admins'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -58,6 +60,44 @@ export class FamilyUpdatePage {
 
     async getMembersSelectedOption() {
         return this.membersSelect.element(by.css('option:checked')).getText();
+    }
+
+    async ownersSelectLastOption() {
+        await this.ownersSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async ownersSelectOption(option) {
+        await this.ownersSelect.sendKeys(option);
+    }
+
+    getOwnersSelect(): ElementFinder {
+        return this.ownersSelect;
+    }
+
+    async getOwnersSelectedOption() {
+        return this.ownersSelect.element(by.css('option:checked')).getText();
+    }
+
+    async adminsSelectLastOption() {
+        await this.adminsSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async adminsSelectOption(option) {
+        await this.adminsSelect.sendKeys(option);
+    }
+
+    getAdminsSelect(): ElementFinder {
+        return this.adminsSelect;
+    }
+
+    async getAdminsSelectedOption() {
+        return this.adminsSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

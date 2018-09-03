@@ -4,6 +4,8 @@ import com.rothandrew.familygiftlist.gateway.FglgatewayApp;
 
 import com.rothandrew.familygiftlist.gateway.domain.Family;
 import com.rothandrew.familygiftlist.gateway.domain.User;
+import com.rothandrew.familygiftlist.gateway.domain.User;
+import com.rothandrew.familygiftlist.gateway.domain.User;
 import com.rothandrew.familygiftlist.gateway.repository.FamilyRepository;
 import com.rothandrew.familygiftlist.gateway.service.FamilyService;
 import com.rothandrew.familygiftlist.gateway.service.dto.FamilyDTO;
@@ -288,6 +290,44 @@ public class FamilyResourceIntTest {
 
         // Get all the familyList where members equals to membersId + 1
         defaultFamilyShouldNotBeFound("membersId.equals=" + (membersId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllFamiliesByOwnersIsEqualToSomething() throws Exception {
+        // Initialize the database
+        User owners = UserResourceIntTest.createEntity(em);
+        em.persist(owners);
+        em.flush();
+        family.addOwners(owners);
+        familyRepository.saveAndFlush(family);
+        Long ownersId = owners.getId();
+
+        // Get all the familyList where owners equals to ownersId
+        defaultFamilyShouldBeFound("ownersId.equals=" + ownersId);
+
+        // Get all the familyList where owners equals to ownersId + 1
+        defaultFamilyShouldNotBeFound("ownersId.equals=" + (ownersId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllFamiliesByAdminsIsEqualToSomething() throws Exception {
+        // Initialize the database
+        User admins = UserResourceIntTest.createEntity(em);
+        em.persist(admins);
+        em.flush();
+        family.addAdmins(admins);
+        familyRepository.saveAndFlush(family);
+        Long adminsId = admins.getId();
+
+        // Get all the familyList where admins equals to adminsId
+        defaultFamilyShouldBeFound("adminsId.equals=" + adminsId);
+
+        // Get all the familyList where admins equals to adminsId + 1
+        defaultFamilyShouldNotBeFound("adminsId.equals=" + (adminsId + 1));
     }
 
     /**

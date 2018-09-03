@@ -27,6 +27,18 @@
                         <option [ngValue]="getSelected(family.members, userOption)" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label jhiTranslate="fglgatewayApp.family.owners" for="field_owners">Owners</label>
+                    <select class="form-control" id="field_owners" multiple name="owners" [(ngModel)]="family.owners">
+                        <option [ngValue]="getSelected(family.owners, userOption)" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="fglgatewayApp.family.admins" for="field_admins">Admins</label>
+                    <select class="form-control" id="field_admins" multiple name="admins" [(ngModel)]="family.admins">
+                        <option [ngValue]="getSelected(family.admins, userOption)" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

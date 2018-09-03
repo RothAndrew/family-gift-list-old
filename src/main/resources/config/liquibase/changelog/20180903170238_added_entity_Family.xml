@@ -40,6 +40,28 @@
 
         <addPrimaryKey columnNames="families_id, members_id" tableName="family_members"/>
         
+        <createTable tableName="family_owners">
+            <column name="owners_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="families_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="families_id, owners_id" tableName="family_owners"/>
+        
+        <createTable tableName="family_admins">
+            <column name="admins_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="families_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="families_id, admins_id" tableName="family_admins"/>
+        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
