@@ -17,7 +17,9 @@
                 "title": "Family"
             },
             "name": "Name",
-            "members": "Members"
+            "members": "Members",
+            "owners": "Owners",
+            "admins": "Admins"
         }
     }
 }

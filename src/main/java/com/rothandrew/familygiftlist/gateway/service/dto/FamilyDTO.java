@@ -18,6 +18,10 @@ public class FamilyDTO implements Serializable {
 
     private Set<UserDTO> members = new HashSet<>();
 
+    private Set<UserDTO> owners = new HashSet<>();
+
+    private Set<UserDTO> admins = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -40,6 +44,22 @@ public class FamilyDTO implements Serializable {
 
     public void setMembers(Set<UserDTO> users) {
         this.members = users;
+    }
+
+    public Set<UserDTO> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(Set<UserDTO> users) {
+        this.owners = users;
+    }
+
+    public Set<UserDTO> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(Set<UserDTO> users) {
+        this.admins = users;
     }
 
     @Override

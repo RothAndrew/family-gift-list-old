@@ -19,5 +19,27 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
         
+        <addForeignKeyConstraint baseColumnNames="families_id"
+                                 baseTableName="family_owners"
+                                 constraintName="fk_family_owners_families_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+        <addForeignKeyConstraint baseColumnNames="owners_id"
+                                 baseTableName="family_owners"
+                                 constraintName="fk_family_owners_owners_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="families_id"
+                                 baseTableName="family_admins"
+                                 constraintName="fk_family_admins_families_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+        <addForeignKeyConstraint baseColumnNames="admins_id"
+                                 baseTableName="family_admins"
+                                 constraintName="fk_family_admins_admins_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
     </changeSet>
 </databaseChangeLog>

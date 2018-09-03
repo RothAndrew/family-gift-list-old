@@ -36,6 +36,8 @@ describe('Family e2e test', () => {
         await familyUpdatePage.setNameInput('name');
         expect(await familyUpdatePage.getNameInput()).toMatch('name');
         // familyUpdatePage.membersSelectLastOption();
+        // familyUpdatePage.ownersSelectLastOption();
+        // familyUpdatePage.adminsSelectLastOption();
         await familyUpdatePage.save();
         expect(await familyUpdatePage.getSaveButton().isPresent()).toBeFalsy();
     });

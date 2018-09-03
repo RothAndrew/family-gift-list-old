@@ -17,6 +17,22 @@
             "otherEntityName": "user",
             "otherEntityField": "login",
             "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "owners",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "admins",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
         }
     ],
     "changelogDate": "20180903170238",

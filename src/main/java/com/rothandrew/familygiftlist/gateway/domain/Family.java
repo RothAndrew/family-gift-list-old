@@ -36,6 +36,20 @@ public class Family implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "members_id", referencedColumnName = "id"))
     private Set<User> members = new HashSet<>();
 
+    @ManyToMany
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "family_owners",
+               joinColumns = @JoinColumn(name = "families_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "owners_id", referencedColumnName = "id"))
+    private Set<User> owners = new HashSet<>();
+
+    @ManyToMany
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "family_admins",
+               joinColumns = @JoinColumn(name = "families_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "admins_id", referencedColumnName = "id"))
+    private Set<User> admins = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -79,6 +93,52 @@ public class Family implements Serializable {
 
     public void setMembers(Set<User> users) {
         this.members = users;
+    }
+
+    public Set<User> getOwners() {
+        return owners;
+    }
+
+    public Family owners(Set<User> users) {
+        this.owners = users;
+        return this;
+    }
+
+    public Family addOwners(User user) {
+        this.owners.add(user);
+        return this;
+    }
+
+    public Family removeOwners(User user) {
+        this.owners.remove(user);
+        return this;
+    }
+
+    public void setOwners(Set<User> users) {
+        this.owners = users;
+    }
+
+    public Set<User> getAdmins() {
+        return admins;
+    }
+
+    public Family admins(Set<User> users) {
+        this.admins = users;
+        return this;
+    }
+
+    public Family addAdmins(User user) {
+        this.admins.add(user);
+        return this;
+    }
+
+    public Family removeAdmins(User user) {
+        this.admins.remove(user);
+        return this;
+    }
+
+    public void setAdmins(Set<User> users) {
+        this.admins = users;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

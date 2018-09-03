@@ -15,6 +15,18 @@
                         {{members.login}}{{last ? '' : ', '}}
                     </span>
                 </dd>
+                <dt><span jhiTranslate="fglgatewayApp.family.owners">Owners</span></dt>
+                <dd>
+                    <span *ngFor="let owners of family.owners; let last = last">
+                        {{owners.login}}{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="fglgatewayApp.family.admins">Admins</span></dt>
+                <dd>
+                    <span *ngFor="let admins of family.admins; let last = last">
+                        {{admins.login}}{{last ? '' : ', '}}
+                    </span>
+                </dd>
             </dl>
 
             <button type="submit"

@@ -32,6 +32,10 @@ public class FamilyCriteria implements Serializable {
 
     private LongFilter membersId;
 
+    private LongFilter ownersId;
+
+    private LongFilter adminsId;
+
     public FamilyCriteria() {
     }
 
@@ -59,12 +63,30 @@ public class FamilyCriteria implements Serializable {
         this.membersId = membersId;
     }
 
+    public LongFilter getOwnersId() {
+        return ownersId;
+    }
+
+    public void setOwnersId(LongFilter ownersId) {
+        this.ownersId = ownersId;
+    }
+
+    public LongFilter getAdminsId() {
+        return adminsId;
+    }
+
+    public void setAdminsId(LongFilter adminsId) {
+        this.adminsId = adminsId;
+    }
+
     @Override
     public String toString() {
         return "FamilyCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
                 (name != null ? "name=" + name + ", " : "") +
                 (membersId != null ? "membersId=" + membersId + ", " : "") +
+                (ownersId != null ? "ownersId=" + ownersId + ", " : "") +
+                (adminsId != null ? "adminsId=" + adminsId + ", " : "") +
             "}";
     }
 
