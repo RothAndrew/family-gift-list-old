@@ -1,5 +1,27 @@
 entity Family {
     name String required
+    // members User
+}
+
+entity GiftList {
+    // user User
+    // gifts Gift
+}
+
+entity Gift {
+    name String required,
+    description TextBlob,
+    url String
+    // user User
+    // giftList GiftList
+}
+
+relationship OneToMany {
+    GiftList{gifts(name)} to Gift{giftList}
+}
+
+relationship ManyToOne {
+    GiftList{user(login)} to User
 }
 
 relationship ManyToMany {

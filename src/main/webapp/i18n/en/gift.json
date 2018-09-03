@@ -1,0 +1,25 @@
+
+{
+    "fglgatewayApp": {
+        "gift" : {
+            "home": {
+                "title": "Gifts",
+                "createLabel": "Create a new Gift",
+                "createOrEditLabel": "Create or edit a Gift"
+            },
+            "created": "A new Gift is created with identifier {{ param }}",
+            "updated": "A Gift is updated with identifier {{ param }}",
+            "deleted": "A Gift is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Gift {{ id }}?"
+            },
+            "detail": {
+                "title": "Gift"
+            },
+            "name": "Name",
+            "description": "Description",
+            "url": "Url",
+            "giftList": "Gift List"
+        }
+    }
+}

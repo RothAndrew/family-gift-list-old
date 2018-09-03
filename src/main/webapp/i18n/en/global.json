@@ -8,6 +8,8 @@
             "entities": {
                 "main": "Entities",
                 "family": "Family",
+                "giftList": "Gift List",
+                "gift": "Gift",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
