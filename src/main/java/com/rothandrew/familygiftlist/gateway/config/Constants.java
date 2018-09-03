@@ -11,7 +11,10 @@ public final class Constants {
     public static final String SYSTEM_ACCOUNT = "system";
     public static final String ANONYMOUS_USER = "anonymoususer";
     public static final String DEFAULT_LANGUAGE = "en";
-    
+    public static final String ERROR_KEY_UNABLE_TO_GET_CURRENT_USER = "unabletogetcurrentuser";
+    public static final String ERROR_KEY_ENTITY_NOT_FOUND = "entitynotfound";
+    public static final String ERROR_KEY_NOT_ALLOWED_TO_MODIFY_ENTITY = "notallowedtomodifyentity";
+
     private Constants() {
     }
 }
