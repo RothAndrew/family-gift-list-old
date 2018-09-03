@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { FamilygiftlistSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import { FglgatewaySharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
 
 @NgModule({
-    imports: [FamilygiftlistSharedLibsModule],
+    imports: [FglgatewaySharedLibsModule],
     declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [FamilygiftlistSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
+    exports: [FglgatewaySharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
 })
-export class FamilygiftlistSharedCommonModule {}
+export class FglgatewaySharedCommonModule {}

@@ -3,6 +3,7 @@ import './vendor.ts';
 import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage, LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
@@ -10,25 +11,26 @@ import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { FamilygiftlistSharedModule } from 'app/shared';
-import { FamilygiftlistCoreModule } from 'app/core';
-import { FamilygiftlistAppRoutingModule } from './app-routing.module';
-import { FamilygiftlistHomeModule } from './home/home.module';
-import { FamilygiftlistAccountModule } from './account/account.module';
-import { FamilygiftlistEntityModule } from './entities/entity.module';
+import { FglgatewaySharedModule } from 'app/shared';
+import { FglgatewayCoreModule } from 'app/core';
+import { FglgatewayAppRoutingModule } from './app-routing.module';
+import { FglgatewayHomeModule } from './home/home.module';
+import { FglgatewayAccountModule } from './account/account.module';
+import { FglgatewayEntityModule } from './entities/entity.module';
+import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
 @NgModule({
     imports: [
         BrowserModule,
-        FamilygiftlistAppRoutingModule,
+        FglgatewayAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
-        FamilygiftlistSharedModule,
-        FamilygiftlistCoreModule,
-        FamilygiftlistHomeModule,
-        FamilygiftlistAccountModule,
-        FamilygiftlistEntityModule
+        FglgatewaySharedModule,
+        FglgatewayCoreModule,
+        FglgatewayHomeModule,
+        FglgatewayAccountModule,
+        FglgatewayEntityModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
@@ -60,4 +62,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     ],
     bootstrap: [JhiMainComponent]
 })
-export class FamilygiftlistAppModule {}
+export class FglgatewayAppModule {
+    constructor(private dpConfig: NgbDatepickerConfig) {
+        this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
+    }
+}

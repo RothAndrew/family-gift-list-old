@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { JhiMetricsMonitoringComponent } from 'app/admin/metrics/metrics.component';
 import { JhiMetricsService } from 'app/admin/metrics/metrics.service';
 
@@ -12,14 +12,16 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<JhiMetricsMonitoringComponent>;
         let service: JhiMetricsService;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule],
-                declarations: [JhiMetricsMonitoringComponent]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule],
+                    declarations: [JhiMetricsMonitoringComponent]
+                })
+                    .overrideTemplate(JhiMetricsMonitoringComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(JhiMetricsMonitoringComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiMetricsMonitoringComponent);

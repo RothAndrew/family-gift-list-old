@@ -1,14 +1,14 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.rothandrew.familygiftlist",
+      "packageName": "com.rothandrew.familygiftlist.gateway",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "5.2.0",
+    "jhipsterVersion": "5.3.0",
     "applicationType": "gateway",
-    "baseName": "familygiftlist",
-    "packageName": "com.rothandrew.familygiftlist",
-    "packageFolder": "com/rothandrew/familygiftlist",
+    "baseName": "fglgateway",
+    "packageName": "com.rothandrew.familygiftlist.gateway",
+    "packageFolder": "com/rothandrew/familygiftlist/gateway",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "hazelcast",
@@ -22,10 +22,10 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
     "enableSwaggerCodegen": true,
-    "jwtSecretKey": "1bd366be372a8e95f38e6a080a311d2411df6489",
+    "jwtSecretKey": "YjU3NjMyYmE4ZDU2ZWMwYmYyMjFlYWE0OGU0OWMyZGZkMzM4NDQ2YTg4ODFiNTViODFmNThhOTRlZWVjOWQ2ODJmNjE0MWQyMDAwZGE5MmJjNjczODgwZDcxMWE3ZGQ4NmFjMmM5NGJlYzU3ZGIyMGI0ZDUyODJkNWFmMjliZTc=",
     "clientFramework": "angularX",
     "useSass": true,
-    "clientPackageManager": "yarn",
+    "clientPackageManager": "npm",
     "testFrameworks": [
       "gatling",
       "cucumber",

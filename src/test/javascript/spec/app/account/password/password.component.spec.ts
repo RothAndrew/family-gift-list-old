@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { PasswordComponent } from 'app/account/password/password.component';
 import { PasswordService } from 'app/account/password/password.service';
 import { JhiTrackerService } from 'app/core/tracker/tracker.service';
@@ -14,20 +14,22 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<PasswordComponent>;
         let service: PasswordService;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule],
-                declarations: [PasswordComponent],
-                providers: [
-                    {
-                        provide: JhiTrackerService,
-                        useClass: MockTrackerService
-                    }
-                ]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule],
+                    declarations: [PasswordComponent],
+                    providers: [
+                        {
+                            provide: JhiTrackerService,
+                            useClass: MockTrackerService
+                        }
+                    ]
+                })
+                    .overrideTemplate(PasswordComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(PasswordComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(PasswordComponent);

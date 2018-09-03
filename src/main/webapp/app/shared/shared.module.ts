@@ -2,14 +2,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbDateMomentAdapter } from './util/datepicker-adapter';
-import { FamilygiftlistSharedLibsModule, FamilygiftlistSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective } from './';
+import { FglgatewaySharedLibsModule, FglgatewaySharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective } from './';
 
 @NgModule({
-    imports: [FamilygiftlistSharedLibsModule, FamilygiftlistSharedCommonModule],
+    imports: [FglgatewaySharedLibsModule, FglgatewaySharedCommonModule],
     declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
     entryComponents: [JhiLoginModalComponent],
-    exports: [FamilygiftlistSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective],
+    exports: [FglgatewaySharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class FamilygiftlistSharedModule {}
+export class FglgatewaySharedModule {}

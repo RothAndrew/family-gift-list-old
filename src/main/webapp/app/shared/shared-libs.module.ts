@@ -22,4 +22,4 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ],
     exports: [FormsModule, CommonModule, NgbModule, NgJhipsterModule, InfiniteScrollModule, FontAwesomeModule]
 })
-export class FamilygiftlistSharedLibsModule {}
+export class FglgatewaySharedLibsModule {}

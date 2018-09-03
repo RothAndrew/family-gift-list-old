@@ -17,7 +17,7 @@ import locale from '@angular/common/locales/en';
         DatePipe
     ]
 })
-export class FamilygiftlistCoreModule {
+export class FglgatewayCoreModule {
     constructor() {
         registerLocaleData(locale);
     }

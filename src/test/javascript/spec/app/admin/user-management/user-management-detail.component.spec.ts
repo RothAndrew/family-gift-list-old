@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { UserMgmtDetailComponent } from 'app/admin/user-management/user-management-detail.component';
 import { User } from 'app/core';
 
@@ -14,20 +14,22 @@ describe('Component Tests', () => {
             data: of({ user: new User(1, 'user', 'first', 'last', 'first@last.com', true, 'en', ['ROLE_USER'], 'admin', null, null, null) })
         } as any) as ActivatedRoute;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule],
-                declarations: [UserMgmtDetailComponent],
-                providers: [
-                    {
-                        provide: ActivatedRoute,
-                        useValue: route
-                    }
-                ]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule],
+                    declarations: [UserMgmtDetailComponent],
+                    providers: [
+                        {
+                            provide: ActivatedRoute,
+                            useValue: route
+                        }
+                    ]
+                })
+                    .overrideTemplate(UserMgmtDetailComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(UserMgmtDetailComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(UserMgmtDetailComponent);

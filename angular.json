@@ -3,14 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "familygiftlist": {
+    "fglgateway": {
       "root": "",
       "sourceRoot": "src/main/webapp",
       "projectType": "application",
       "architect": {}
     }
   },
-  "defaultProject": "familygiftlist",
+  "defaultProject": "fglgateway",
   "cli": {
     "packageManager": "yarn"
   },

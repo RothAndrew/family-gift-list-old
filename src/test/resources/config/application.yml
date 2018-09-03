@@ -17,20 +17,22 @@ eureka:
     client:
         enabled: false
     instance:
-        appname: familygiftlist
-        instanceId: familygiftlist:${spring.application.instance-id:${random.value}}
+        appname: fglgateway
+        instanceId: fglgateway:${spring.application.instance-id:${random.value}}
 
 spring:
     application:
-        name: familygiftlist
+        name: fglgateway
     cache:
         type: simple
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:familygiftlist;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        url: jdbc:h2:mem:fglgateway;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         name:
         username:
         password:
+        hikari:
+            auto-commit: false
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedH2Dialect
         database: H2
@@ -43,6 +45,7 @@ spring:
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         properties:
             hibernate.id.new_generator_mappings: true
+            hibernate.connection.provider_disables_autocommit: true
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
@@ -58,7 +61,7 @@ spring:
             enabled: false
     thymeleaf:
         mode: HTML
-        
+
 
 server:
     port: 10344
@@ -92,7 +95,8 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 1bd366be372a8e95f38e6a080a311d2411df6489
+                # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+                base64-secret: YjU3NjMyYmE4ZDU2ZWMwYmYyMjFlYWE0OGU0OWMyZGZkMzM4NDQ2YTg4ODFiNTViODFmNThhOTRlZWVjOWQ2ODJmNjE0MWQyMDAwZGE5MmJjNjczODgwZDcxMWE3ZGQ4NmFjMmM5NGJlYzU3ZGIyMGI0ZDUyODJkNWFmMjliZTc=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

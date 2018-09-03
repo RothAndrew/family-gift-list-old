@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { AuditsComponent } from 'app/admin/audits/audits.component';
 import { AuditsService } from 'app/admin/audits/audits.service';
 import { Audit } from 'app/admin/audits/audit.model';
@@ -36,15 +36,17 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<AuditsComponent>;
         let service: AuditsService;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule],
-                declarations: [AuditsComponent],
-                providers: [AuditsService]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule],
+                    declarations: [AuditsComponent],
+                    providers: [AuditsService]
+                })
+                    .overrideTemplate(AuditsComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(AuditsComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(AuditsComponent);

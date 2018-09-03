@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { JhiConfigurationComponent } from 'app/admin/configuration/configuration.component';
 import { JhiConfigurationService } from 'app/admin/configuration/configuration.service';
 import { ITEMS_PER_PAGE } from 'app/shared';
@@ -14,15 +14,17 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<JhiConfigurationComponent>;
         let service: JhiConfigurationService;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule],
-                declarations: [JhiConfigurationComponent],
-                providers: [JhiConfigurationService]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule],
+                    declarations: [JhiConfigurationComponent],
+                    providers: [JhiConfigurationService]
+                })
+                    .overrideTemplate(JhiConfigurationComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(JhiConfigurationComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiConfigurationComponent);

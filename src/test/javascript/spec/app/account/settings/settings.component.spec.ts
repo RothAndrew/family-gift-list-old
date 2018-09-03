@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable, throwError } from 'rxjs';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { Principal, AccountService } from 'app/core';
 import { SettingsComponent } from 'app/account/settings/settings.component';
 import { JhiTrackerService } from 'app/core/tracker/tracker.service';
@@ -14,20 +14,22 @@ describe('Component Tests', () => {
         let mockAuth: any;
         let mockPrincipal: any;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule],
-                declarations: [SettingsComponent],
-                providers: [
-                    {
-                        provide: JhiTrackerService,
-                        useClass: MockTrackerService
-                    }
-                ]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule],
+                    declarations: [SettingsComponent],
+                    providers: [
+                        {
+                            provide: JhiTrackerService,
+                            useClass: MockTrackerService
+                        }
+                    ]
+                })
+                    .overrideTemplate(SettingsComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(SettingsComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(SettingsComponent);

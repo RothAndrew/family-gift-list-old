@@ -3,7 +3,7 @@ import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { FamilygiftlistTestModule } from '../../../test.module';
+import { FglgatewayTestModule } from '../../../test.module';
 import { JhiAlertErrorComponent } from 'app/shared/alert/alert-error.component';
 import { MockAlertService } from '../../../helpers/mock-alert.service';
 
@@ -13,21 +13,23 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<JhiAlertErrorComponent>;
         let eventManager: JhiEventManager;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [FamilygiftlistTestModule, TranslateModule.forRoot()],
-                declarations: [JhiAlertErrorComponent],
-                providers: [
-                    JhiEventManager,
-                    {
-                        provide: JhiAlertService,
-                        useClass: MockAlertService
-                    }
-                ]
+        beforeEach(
+            async(() => {
+                TestBed.configureTestingModule({
+                    imports: [FglgatewayTestModule, TranslateModule.forRoot()],
+                    declarations: [JhiAlertErrorComponent],
+                    providers: [
+                        JhiEventManager,
+                        {
+                            provide: JhiAlertService,
+                            useClass: MockAlertService
+                        }
+                    ]
+                })
+                    .overrideTemplate(JhiAlertErrorComponent, '')
+                    .compileComponents();
             })
-                .overrideTemplate(JhiAlertErrorComponent, '')
-                .compileComponents();
-        }));
+        );
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiAlertErrorComponent);
@@ -38,22 +40,22 @@ describe('Component Tests', () => {
         describe('Error Handling', () => {
             it('Should display an alert on status 0', () => {
                 // GIVEN
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: { status: 0 } });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: { status: 0 } });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
                 expect(comp.alerts[0].msg).toBe('error.server.not.reachable');
             });
             it('Should display an alert on status 404', () => {
                 // GIVEN
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: { status: 404 } });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: { status: 404 } });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
                 expect(comp.alerts[0].msg).toBe('error.url.not.found');
             });
             it('Should display an alert on generic error', () => {
                 // GIVEN
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: { error: { message: 'Error Message' } } });
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: { error: 'Second Error Message' } });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: { error: { message: 'Error Message' } } });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: { error: 'Second Error Message' } });
                 // THEN
                 expect(comp.alerts.length).toBe(2);
                 expect(comp.alerts[0].msg).toBe('Error Message');
@@ -74,7 +76,7 @@ describe('Component Tests', () => {
                         message: 'error.validation'
                     }
                 });
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: response });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: response });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
                 expect(comp.alerts[0].msg).toBe('error.validation');
@@ -87,7 +89,7 @@ describe('Component Tests', () => {
                     status: 400,
                     error: 'Bad Request'
                 });
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: response });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: response });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
                 expect(comp.alerts[0].msg).toBe('Bad Request');
@@ -108,7 +110,7 @@ describe('Component Tests', () => {
                         fieldErrors: [{ objectName: 'foo', field: 'minField', message: 'Min' }]
                     }
                 });
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: response });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: response });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
                 expect(comp.alerts[0].msg).toBe('error.Size');
@@ -125,7 +127,7 @@ describe('Component Tests', () => {
                         message: 'error.validation'
                     }
                 });
-                eventManager.broadcast({ name: 'familygiftlistApp.httpError', content: response });
+                eventManager.broadcast({ name: 'fglgatewayApp.httpError', content: response });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
                 expect(comp.alerts[0].msg).toBe('Error Message');

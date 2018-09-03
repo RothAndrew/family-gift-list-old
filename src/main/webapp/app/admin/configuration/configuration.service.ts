@@ -40,7 +40,7 @@ export class JhiConfigurationService {
             }
         }
         // by default, use the default ApplicationContext Id
-        return res['contexts']['familygiftlist']['beans'];
+        return res['contexts']['fglgateway']['beans'];
     }
 
     getEnv(): Observable<any> {

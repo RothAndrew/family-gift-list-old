@@ -7,6 +7,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const path = require('path');
+const sass = require('sass');
 
 const utils = require('./utils.js');
 const commonConfig = require('./webpack.common.js');
@@ -56,13 +57,13 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
         rules: [{
             test: /\.ts$/,
             enforce: 'pre',
-            loaders: 'tslint-loader',
+            loader: 'tslint-loader',
             exclude: ['node_modules', new RegExp('reflect-metadata\\' + path.sep + 'Reflect\\.ts')]
         },
         {
             test: /\.ts$/,
             use: [
-                { loader: 'angular2-template-loader' },
+                'angular2-template-loader',
                 {
                     loader: 'cache-loader',
                     options: {
@@ -83,27 +84,33 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
                         happyPackMode: true
                     }
                 },
-                { loader: 'angular-router-loader' }
+                'angular-router-loader'
             ],
             exclude: ['node_modules']
         },
         {
             test: /\.scss$/,
-            loaders: ['to-string-loader', 'css-loader', 'sass-loader'],
+            use: ['to-string-loader', 'css-loader', { 
+                loader: 'sass-loader', 
+                options: { implementation: sass }
+            }],
             exclude: /(vendor\.scss|global\.scss)/
         },
         {
             test: /(vendor\.scss|global\.scss)/,
-            loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+            use: ['style-loader', 'css-loader', 'postcss-loader', { 
+                loader: 'sass-loader', 
+                options: { implementation: sass }
+            }]
         },
         {
             test: /\.css$/,
-            loaders: ['to-string-loader', 'css-loader'],
+            use: ['to-string-loader', 'css-loader'],
             exclude: /(vendor\.css|global\.css)/
         },
         {
             test: /(vendor\.css|global\.css)/,
-            loaders: ['style-loader', 'css-loader']
+            use: ['style-loader', 'css-loader']
         }]
     },
     stats: options.stats,

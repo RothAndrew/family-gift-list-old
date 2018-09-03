@@ -12,7 +12,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                 ...LAYOUT_ROUTES,
                 {
                     path: 'admin',
-                    loadChildren: './admin/admin.module#FamilygiftlistAdminModule'
+                    loadChildren: './admin/admin.module#FglgatewayAdminModule'
                 }
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }
@@ -20,4 +20,4 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
     ],
     exports: [RouterModule]
 })
-export class FamilygiftlistAppRoutingModule {}
+export class FglgatewayAppRoutingModule {}
