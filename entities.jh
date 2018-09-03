@@ -1,0 +1,12 @@
+entity Family {
+    name String required
+}
+
+relationship ManyToMany {
+    Family{members(login)} to User
+}
+
+dto * with mapstruct
+paginate * with infinite-scroll
+service * with serviceImpl
+filter *
