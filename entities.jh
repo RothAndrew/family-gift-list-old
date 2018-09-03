@@ -1,6 +1,8 @@
 entity Family {
     name String required
     // members User
+    // owners User
+    // admins User
 }
 
 entity GiftList {
@@ -25,7 +27,9 @@ relationship ManyToOne {
 }
 
 relationship ManyToMany {
-    Family{members(login)} to User
+    Family{members(login)} to User,
+    Family{owners(login)} to User,
+    Family{admins(login)} to User
 }
 
 dto * with mapstruct
