@@ -34,7 +34,7 @@ public class FamilyResource {
 
     private final Logger log = LoggerFactory.getLogger(FamilyResource.class);
 
-    private static final String ENTITY_NAME = "family";
+    public static final String ENTITY_NAME = "family";
 
     private final FamilyService familyService;
 
